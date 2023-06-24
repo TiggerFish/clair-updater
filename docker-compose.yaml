@@ -2,6 +2,7 @@ volumes:
   clair-config:
 services:
   pg:
+    container_name: postgresql-clairv4
     environment:
       - POSTGRESQL_USER=clairuser
       - POSTGRESQL_PASSWORD=clairpass
@@ -16,6 +17,7 @@ services:
       timeout: 5s
       retries: 5
   clair:
+    container_name: clairv4
     restart: always
     depends_on:
       pg:
