@@ -25,4 +25,4 @@ docker-build:
     - docker compose up -d
     - docker cp clairv4:/usr/bin/clairctl $CI_PROJECT_DIR/clairctl
     - chmod +x $CI_PROJECT_DIR/clairctl
-    - ./$CI_PROJECT_DIR/clairctl --config $CI_PROJECT_DIR/clair-config/compose-config.yaml export-updaters updates.gz
+    - .$CI_PROJECT_DIR/clairctl --config $CI_PROJECT_DIR/clair-config/compose-config.yaml export-updaters updates.gz
