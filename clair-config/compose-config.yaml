@@ -1,0 +1,18 @@
+indexer:
+  connstring: host=pg port=5432 dbname=clair user=clairuser password=clairpass sslmode=disable
+  scanlock_retry: 10
+  layer_scan_concurrency: 5
+  migrations: true
+  airgap: true
+matcher:
+  connstring: host=pg port=5432 dbname=clair user=clairuser password=clairpass sslmode=disable
+  max_conn_pool: 100
+  run: ""
+  migrations: true
+  indexer_addr: clair-indexer
+  disable_updaters: true
+notifier:
+  connstring: host=pg port=5432 dbname=clair user=clairuser password=clairpass sslmode=disable
+  delivery_interval: 1m
+  poll_interval: 5m
+  migrations: true
