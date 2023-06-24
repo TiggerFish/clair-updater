@@ -1,3 +1,5 @@
+volumes:
+  clair-config:
 services:
   pg:
     environment:
