@@ -22,4 +22,6 @@ docker-build:
     - echo "$RH_REGISTRY_PASSWORD" | docker login -u "$RH_REGISTRY_USER" --password-stdin $RH_REGISTRY
 
   script:
-    - docker compose up
+    - docker compose up -d
+    - docker cp clairv4:/usr/bin/clairctl ./clairctl
+    - ./clairctl --config $CI_PROJECT_DIR/clair-config/compose-config.yaml export-updaters updates.gz
