@@ -16,5 +16,10 @@ docker-build:
   stage: build
   services:
     - docker:dind
+  before_script:
+    # Log in to the GitLab container registry
+    - export REGISTRY_AUTH_FILE=$HOME/auth.json
+    - echo "$RH_REGISTRY_PASSWORD" | docker login -u "$RH_REGISTRY_USER" --password-stdin $RH_REGISTRY
+
   script:
     - docker compose up
