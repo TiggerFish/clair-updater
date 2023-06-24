@@ -25,7 +25,7 @@ services:
       - CLAIR_CONF=/clair/compose-config.yaml
     image: registry.redhat.io/quay/clair-rhel8:v3.8.8
     volumes:
-      - clair-config:/clair:Z
+      - $CI_PROJECT_DIR/clair-config:/clair:Z
 
 
 
