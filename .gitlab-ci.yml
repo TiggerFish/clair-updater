@@ -25,5 +25,9 @@ docker-build:
     - mkdir $CI_PROJECT_DIR/output
     - chmod 777 $CI_PROJECT_DIR/output
     - docker compose up -d
-    - docker exec --workdir /output clairv4 clairctl --config /clair/compose-config.yaml export-updaters updates.gz
+    - docker exec --workdir /output clairv4 clairctl --config /clair/compose-config.yaml export-updaters updates.gz || true
     - ls -l $CI_PROJECT_DIR/output
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/output/updates.gz
+      
