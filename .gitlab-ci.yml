@@ -26,3 +26,4 @@ docker-build:
     - chmod 777 $CI_PROJECT_DIR/output
     - docker compose up -d
     - docker exec --workdir /output clairv4 clairctl --config /clair/compose-config.yaml export-updaters updates.gz
+    - ls -l $CI_PROJECT_DIR/output
