@@ -1,5 +1,6 @@
 volumes:
   clair-config:
+  output:
 services:
   pg:
     container_name: postgresql-clairv4
@@ -28,6 +29,7 @@ services:
     image: registry.redhat.io/quay/clair-rhel8:v3.8.8
     volumes:
       - $CI_PROJECT_DIR/clair-config:/clair:Z
-
+      - $CI_PROJECT_DIR/output:/output:Z
+  
 
 
