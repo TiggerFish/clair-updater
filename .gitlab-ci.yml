@@ -35,8 +35,11 @@ docker-build:
     - chmod 777 $CI_PROJECT_DIR/output
     - docker compose up -d
     - docker exec --workdir /output clairv4 clairctl --config /clair/compose-config.yaml export-updaters updates.gz || true
-    - ls -l $CI_PROJECT_DIR/output
+    - wget https://www.redhat.com/security/data/metrics/repository-to-cpe.json -O $CI_PROJECT_DIR/output/repository-to-cpe.json
+    - wget https://access.redhat.com/security/data/metrics/container-name-repos-map.json -O $CI_PROJECT_DIR/output/container-name-repos-map.json
   artifacts:
     paths:
       - $CI_PROJECT_DIR/output/updates.gz
+      - $CI_PROJECT_DIR/output/repository-to-cpe.json
+      - $CI_PROJECT_DIR/output/container-name-repos-map.json
       
